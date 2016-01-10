@@ -1,6 +1,7 @@
 package com.projx.ledpointlin;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,8 +10,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 
-public class MainActivity extends AppCompatActivity {
+public class LandingActivity extends AppCompatActivity {
+    public final static String EXTRA_RASPBERRYIP = "com.projx.ledpointlin.RASPBERRYIP";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,5 +52,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void goMainPage(View view){
+        Intent mainIntent = new Intent(this, MainActivity.class);
+        EditText editText = (EditText) findViewById(R.id.edit_address);
+        String ipAddress = editText.getText().toString();
+        mainIntent.putExtra(EXTRA_RASPBERRYIP, ipAddress);
     }
 }
