@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,7 +18,14 @@ public class MainActivity extends AppCompatActivity {
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
         Intent intent = getIntent();
+
         String ipAddress = intent.getStringExtra(LandingActivity.EXTRA_RASPBERRYIP);
+        TextView textView = new TextView(this);
+        textView.setTextSize(40);
+        textView.setText(ipAddress);
+
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.content);
+        layout.addView(textView);
     }
 
     @Override
