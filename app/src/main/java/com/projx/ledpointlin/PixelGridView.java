@@ -1,4 +1,4 @@
-package bw.projxconcept;
+package com.projx.ledpointlin;
 
 import android.content.Context;
 import android.graphics.Canvas;
